@@ -11,7 +11,8 @@ function delay(timeout) {
 
 export const handlers = [
     rest.post('/upload', async (req, res, ctx) => {
-        await delay(4000)
+        // waits 1 to 5 seconds
+        await delay((Math.random() * 4000) + 1000)
         return res(ctx.status(200));
     }),
     rest.get('/*', (req) =>  req.passthrough())
